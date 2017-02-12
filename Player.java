@@ -37,6 +37,10 @@ class Player {
 	public void setHand(ArrayList<Card> hand){
 		this.hand = hand;
 	}
+	
+	public void addCard() {
+		hand.add(Deck.drawCard());
+	}
 
 	public ArrayList<Card> getHand(){
 		return hand;
