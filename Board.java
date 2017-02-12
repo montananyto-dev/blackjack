@@ -35,7 +35,7 @@ public class Board{
 			numberOfPlayers --;
 
 
-		}while ( numberOfPlayers > 0 );
+			}while ( numberOfPlayers > 0 );
 		
 			
 			Iterator<Player> iterator = players.iterator();
@@ -49,7 +49,7 @@ public class Board{
 			System.out.println("Would you like an other card");
 			String answer = scan.nextLine();
 			
-			if ( answer == "Yes" )
+			if ( answer == "Yes" ){
 				
 				player.addCard(Deck.drawCard());
 				System.out.println(player.getHand());
@@ -83,4 +83,4 @@ public class Board{
 		
 	}
 
-
+}
