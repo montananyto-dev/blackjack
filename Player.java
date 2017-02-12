@@ -5,11 +5,13 @@ class Player {
 	private String name;
 	private int age;
 	private ArrayList<Card> hand;
+	private boolean active;
 	
 
 
 	public Player( String name,int age){
 		this.activePlayers+=1;
+		this.active=true;
 		this.name = name;
 		this.age = age;
 		this.hand = new ArrayList<Card>() ;
@@ -65,6 +67,10 @@ class Player {
 	public void printHand() {
 		for(Card aCard : hand)
 			System.out.println(aCard);
+	}
+	
+	public boolean isActive() {
+		return this.active;
 	}
 
 }
