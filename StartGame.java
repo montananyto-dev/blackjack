@@ -1,15 +1,10 @@
 public class StartGame{
 
-
-
-public static void main(String[]args){
+	public static void main(String[]args){
 	
-	Board newBoard = new Board();
+		Board newBoard = new Board();
 
-
-
-
-}
+	}	
 
 
 }
