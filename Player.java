@@ -1,13 +1,15 @@
 import java.util.ArrayList;
 
 class Player {
-
+	public static int activePlayers = 0;
 	private String name;
 	private int age;
 	private ArrayList<Card> hand;
+	
 
 
 	public Player( String name,int age){
+		this.activePlayers+=1;
 		this.name = name;
 		this.age = age;
 		this.hand = new ArrayList<Card>() ;
