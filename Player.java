@@ -70,7 +70,7 @@ class Player {
 
 	public void printHand() {
 		for(Card aCard : hand)
-			System.out.println(aCard);
+			System.out.print(aCard + " / ");
 	}
 	
 	public boolean isActive() {
