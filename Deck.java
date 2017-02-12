@@ -8,7 +8,7 @@ class Deck {
 	//will be constructor
 	//public static void main(String[] args) {
 	
-	private static void init() {
+	public static void init() {
 		cards = new ArrayList<>();
 		
 		String[] suites = {"Diamond","Club","Heart","Spade"};
@@ -21,7 +21,6 @@ class Deck {
 	}
 	
 	public static Card drawCard() {
-		checkInit();
 		Random rnd = new Random();
 		Card drawn = cards.get(rnd.nextInt(cards.size()));
 		cards.remove(drawn);
@@ -36,10 +35,4 @@ class Deck {
 		
 		return pile;
 	}
-	
-	private static void checkInit() {
-		if(cards==null)
-			init();
-	}
-	
 }

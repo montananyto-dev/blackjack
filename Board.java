@@ -9,7 +9,7 @@ public class Board{
 
 
 	public Board() {
-
+		Deck.init();
 		System.out.println("How many Players");
 
 		Scanner scan = new Scanner(System.in);
