@@ -38,8 +38,8 @@ class Player {
 		this.hand = hand;
 	}
 	
-	public void addCard() {
-		hand.add(Deck.drawCard());
+	public void addCard(Card aCard) {
+		hand.add(aCard);
 	}
 
 	public ArrayList<Card> getHand(){
