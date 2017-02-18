@@ -46,6 +46,26 @@ class Player {
 		return hand;
 	}
 
+	public int getValue() {
+		int value=0;
+		int aceCount=0;
+		for(Card card : hand) {
+			if(card.getValue()==1) { //is an Ace
+				aceCount+=1;
+			} else { //not Ace
+				value+=card.getValue();
+			}
+		}
+
+		for(int i=0; i<aceCount; i++) {
+			if(value+11 > 21) {
+				value+=1;
+			} else {
+				value+=11;
+			}
+		}
+	}
+
 	public boolean goneOver() {
 		int value=0;
 		int aceCount=0;
@@ -64,7 +84,7 @@ class Player {
 				value+=11;
 			}
 		}
-		System.out.println("Value: " + value);
+
 		return value>21;
 	}
 
