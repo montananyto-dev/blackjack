@@ -7,6 +7,7 @@ public class Board{
 
 	private static ArrayList<Player> players;
 	private Scanner scan;
+	private String answer;
 
 
 	public Board() {
@@ -45,21 +46,29 @@ public class Board{
 			Player player = iterator.next();
 
 			System.out.println("It is your turn " + player.getName()+ "\n");
-			System.out.println("Your hand is " + player.getHand());
-			System.out.println("Would you like an other card");
-			String answer = scan.nextLine();
+			System.out.println("Your hand is ");player.printHand();
+			System.out.println("\n");
 
-			if ( answer == "Yes" ){
+			do {
+				System.out.println("Would you like a card");
+				answer = scan.nextLine();
 
+			}while (giveNewCardIfYes(answer,player));
+
+		}
+	}
+
+		private boolean giveNewCardIfYes(String answer,Player player){
+
+			if (answer.equals("Yes")){
 				player.addCard(Deck.drawCard());
-				System.out.println(player.getHand());
-
-
+				player.printHand();
+				return false;
+			}else{
+				return true;
 			}
 
-        }
-
-	}
+			}
 
 	private int reqPlayerNumber() {
 		System.out.println("How many Players");
