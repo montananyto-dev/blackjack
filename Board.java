@@ -45,14 +45,14 @@ public class Board{
 
 			Player player = iterator.next();
 
-			System.out.println("It is your turn " + player.getName()+ "\n");
+			System.out.println("\n"+"It is your turn " + player.getName()+ "\n");
 			System.out.println("Your hand is ");player.printHand();
 			System.out.println("\n");
 
 			do {
 				System.out.println("Would you like a card");
 				answer = scan.nextLine();
-
+				System.out.println("\n");
 			}while (giveNewCardIfYes(answer,player));
 
 		}
