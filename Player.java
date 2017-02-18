@@ -46,7 +46,7 @@ class Player {
 		return hand;
 	}
 
-	public int getValue() {
+	public int getTotalValue() {
 		int value=0;
 		int aceCount=0;
 		for(Card card : hand) {
@@ -69,7 +69,7 @@ class Player {
 	}
 
 	public boolean goneOver() {
-		return getValue()>21;
+		return getTotalValue()>21;
 	}
 
 	public void printHand() {
