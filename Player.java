@@ -6,7 +6,7 @@ class Player {
 	private int age;
 	private ArrayList<Card> hand;
 	private boolean active;
-	
+
 
 
 	public Player( String name,int age){
@@ -37,7 +37,7 @@ class Player {
 	public void setHand(ArrayList<Card> hand){
 		this.hand = hand;
 	}
-	
+
 	public void addCard(Card aCard) {
 		hand.add(aCard);
 	}
@@ -56,7 +56,7 @@ class Player {
 				value+=card.getValue();
 			}
 		}
-		
+
 		for(int i=0; i<aceCount; i++) {
 			if(value+11 > 21) {
 				value+=1;
@@ -70,9 +70,9 @@ class Player {
 
 	public void printHand() {
 		for(Card aCard : hand)
-			System.out.print(aCard + " / ");
+			System.out.print(aCard + "\n");
 	}
-	
+
 	public boolean isActive() {
 		return this.active;
 	}
