@@ -64,6 +64,8 @@ class Player {
 				value+=11;
 			}
 		}
+
+		return value;
 	}
 
 	public boolean goneOver() {
