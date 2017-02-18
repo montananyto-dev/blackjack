@@ -62,10 +62,24 @@ public class Board{
 	}
 
 	private int reqPlayerNumber() {
-		System.out.println("How many Players");
-		String input = scan.nextLine();
+		boolean isNumber = false;
+		boolean aboveLimit = true;
+		String input;
+		int amount=0;
+		do {
+			System.out.println("How many Players (max. 5)");
+			input = scan.nextLine();
 
-		return Integer.parseInt(input);
+			isNumber = isNumeric(input);
+			if(isNumber) {
+				amount = Integer.parseInt(input);
+				aboveLimit = amount > 5;
+				if(aboveLimit) { System.out.println("Above maximum."); }
+			} else { System.out.println("Not a number."); }
+			
+		} while(!isNumber || aboveLimit);
+
+		return amount;
 	}
 
 	private String reqPlayerName() {
@@ -82,11 +96,24 @@ public class Board{
 	}
 
 	private int reqPlayerAge() {
-		System.out.println("Age of the player");
-		String input = scan.nextLine();
+		int age = 0;
+		boolean tooYoung = true;
+		boolean isNumber = false;
+		String input;
+		do {
+			System.out.println("Age of the player");
+			input = scan.nextLine();
 
-		return Integer.parseInt(input);
+			isNumber = isNumeric(input);
+			if(isNumber)	{
+				age = Integer.parseInt(input);
+				tooYoung = age < 18;
+				if(tooYoung) { System.out.println("Too young."); }
+			} else { System.out.println("Not a number."); }
 
+		} while(tooYoung || !isNumber);
+
+		return age;
 	}
 
 	private boolean playerExists(String newName) {
@@ -95,6 +122,16 @@ public class Board{
 				return true;
 
 		return false;
+	}
+
+	//TODO Improve this! Very bad.
+	private boolean isNumeric(String input) {
+		try {
+	    Integer.parseInt(input);
+		} catch (NumberFormatException e) {
+		    return false;
+		}
+		return true;
 	}
 
 }
