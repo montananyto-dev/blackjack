@@ -12,7 +12,7 @@ class Deck {
 		m_cards = new ArrayList<>();
 
 		String[] suites = {"Diamond","Club","Heart","Spade"};
-		String[] types =  {"Ace","1","2","3","4","5","6","7","8","9","10","Jack","King","Queen"};
+		String[] types =  {"Ace","2","3","4","5","6","7","8","9","10","Jack","King","Queen"};
 
 		for(String s : suites) {
 			for(String t : types) {
