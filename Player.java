@@ -1,21 +1,29 @@
 import java.util.ArrayList;
 
 class Player {
-	public static int m_activePlayers = 0;
+
 	private String m_name;
 	private int m_age;
 	private ArrayList<Card> m_hand;
 	private boolean m_active;
+	private PlayerState m_state;
 
 
 
 	public Player(String name,int age){
-		m_activePlayers+=1;
-		m_active=true;
+		m_state = PlayerState.ACTIVE;
 		m_name = name;
 		m_age = age;
 		m_hand = new ArrayList<Card>() ;
 		m_hand.addAll(Deck.drawPair());
+	}
+
+	public PlayerState getState() {
+		return m_state;
+	}
+
+	public void setState(PlayerState state) {
+		m_state = state;
 	}
 
 	public void setName(String name){
@@ -76,15 +84,6 @@ class Player {
 		for(Card aCard : m_hand)
 			System.out.print(aCard + "\n");
 		System.out.println("(" + getTotalValue() + ")");
-	}
-
-	public boolean isActive() {
-		return m_active;
-	}
-
-	public void deactivate(){
-		m_active = false;
-
 	}
 
 }

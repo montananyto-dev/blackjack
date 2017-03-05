@@ -2,8 +2,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-
-public class Board{
+public class Board {
 
 	private static ArrayList<Player> players;
 	private Scanner scan;
@@ -40,42 +39,62 @@ public class Board{
 
 			}while ( numberOfPlayers > 0 );
 
+			while(activePlayerExists()) {
+				Iterator<Player> iterator = players.iterator();
+				while (iterator.hasNext()){
 
-			Iterator<Player> iterator = players.iterator();
-			while (iterator.hasNext()) {
+					Player player = iterator.next();
+					if(player.getState() == PlayerState.ACTIVE) {
+						System.out.println("It is your turn " + player.getName());
+						System.out.println("Your hand is...");
+						player.printHand();
 
-				Player player = iterator.next();
-
-				System.out.println("\n"+"It is your turn " + player.getName()+ "\n");
-				System.out.println("Your hand is...");
-				player.printHand();
-				System.out.println("\n");
-
-				do {
-					System.out.println("Would you like a card (Y/n)");
-					answer = scan.nextLine();
-					System.out.println("\n");
-				} while(giveNewCardIfYes(answer,player));
-
+						System.out.println("Would you like a card (Y/n)");
+						answer = scan.nextLine();
+						giveNewCardIfYes(answer,player);
+					}
+				}
 			}
+
+			String winnerName = "";
+			int biggest =0;
+
+			for(Player player: players) {
+				if(player.getState() == PlayerState.INACTIVE) {
+					if(player.getTotalValue() > biggest) {
+						biggest = player.getTotalValue();
+						winnerName = player.getName();
+					}
+				}
+			}
+			System.out.println("The winner is: " + winnerName + " with a score of " + biggest);
 	}
 
-		private boolean giveNewCardIfYes(String answer,Player player){
-
-			if (answer.equalsIgnoreCase("Y") || answer.equalsIgnoreCase("YES")){
-				player.addCard(Deck.drawCard());
-				player.printHand();
-				if(player.goneOver()) {
-					players.remove(player);
-					System.out.println("You've gone over. Loser.");
-					return false;
-				}
+	private boolean activePlayerExists() {
+		for(Player player : players)
+			if(player.getState() == PlayerState.ACTIVE)
 				return true;
-			}else{
+
+		return false;
+	}
+
+	private boolean giveNewCardIfYes(String answer,Player player){
+
+		if (answer.equalsIgnoreCase("Y") || answer.equalsIgnoreCase("YES")){
+			player.addCard(Deck.drawCard());
+			player.printHand();
+			if(player.goneOver()) {
+				player.setState(PlayerState.LOST);
+				System.out.println("You've gone over. Loser.");
 				return false;
 			}
+			return true;
+		}else{
+			player.setState(PlayerState.INACTIVE);
+			return false;
+		}
 
-			}
+	}
 
 	private int reqPlayerNumber() {
 		boolean isNumber = false;
