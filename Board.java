@@ -42,7 +42,6 @@ public class Board{
 
 
 			Iterator<Player> iterator = players.iterator();
-
 			while (iterator.hasNext()) {
 
 				Player player = iterator.next();
@@ -58,7 +57,7 @@ public class Board{
 					System.out.println("\n");
 				} while(giveNewCardIfYes(answer,player));
 
-		}
+			}
 	}
 
 		private boolean giveNewCardIfYes(String answer,Player player){
@@ -66,9 +65,14 @@ public class Board{
 			if (answer.equalsIgnoreCase("Y") || answer.equalsIgnoreCase("YES")){
 				player.addCard(Deck.drawCard());
 				player.printHand();
-				return false;
-			}else{
+				if(player.goneOver()) {
+					players.remove(player);
+					System.out.println("You've gone over. Loser.");
+					return false;
+				}
 				return true;
+			}else{
+				return false;
 			}
 
 			}
