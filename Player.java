@@ -82,4 +82,9 @@ class Player {
 		return m_active;
 	}
 
+	public void deactivate(){
+		m_active = false;
+
+	}
+
 }
