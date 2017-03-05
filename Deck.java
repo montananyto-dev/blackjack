@@ -12,10 +12,11 @@ class Deck {
 		m_cards = new ArrayList<>();
 
 		String[] suites = {"Diamond","Club","Heart","Spade"};
+		String[] types =  {"Ace","1","2","3","4","5","6","7","8","9","10","Jack","King","Queen"};
 
-		for(int idx=0;idx<suites.length;idx++) {
-			for(int val=1; val<14;val++) {
-				m_cards.add(new Card(suites[idx],val));
+		for(String s : suites) {
+			for(String t : types) {
+				m_cards.add(new Card(s,t));
 			}
 		}
 	}

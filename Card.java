@@ -1,10 +1,10 @@
 class Card {
 	private String m_suite;
-	private int m_value;
+	private String m_type;
 
-	public Card(String suite, int value) {
-		m_suite = t_suite;
-		m_value = t_value;
+	public Card(String suite, String type) {
+		m_suite = suite;
+		m_type = type;
 	}
 
 	private String getSuite() {
@@ -12,17 +12,17 @@ class Card {
 	}
 
 	public int getValue() {
-		return m_value;
+		switch(getType()) {
+			case "Ace" : return 1;
+			case "Jack" :
+			case "Queen" :
+			case "King" : return 10;
+			default : return Integer.parseInt(getType());
+		}
 	}
 
 	private String getType() {
-		switch(getValue()) {
-			case 1 : return "Ace";
-			case 11 : return "Jack";
-			case 12 : return "Queen";
-			case 13 : return "King";
-			default : return Integer.toString(getValue());
-		}
+		return m_type;
 	}
 
 	public String toString() {
