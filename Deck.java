@@ -39,9 +39,9 @@ class Deck {
 
 	public static void displayAllCards(){
 
-		for(Card allcards : m_cards ){
+		for(Card card : m_cards ){
 
-			System.out.println(allcards);
+			System.out.println(card.toString() + " (" + card.getValue() + ")");
 		}
 		System.out.println("\n");
 	}
