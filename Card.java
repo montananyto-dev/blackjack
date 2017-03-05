@@ -2,7 +2,7 @@ class Card {
 	private String m_suite;
 	private int m_value;
 
-	public Card(String t_suite, int t_value) {
+	public Card(String suite, int value) {
 		m_suite = t_suite;
 		m_value = t_value;
 	}
