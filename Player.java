@@ -75,6 +75,7 @@ class Player {
 	public void printHand() {
 		for(Card aCard : m_hand)
 			System.out.print(aCard + "\n");
+		System.out.println("(" + getTotalValue() + ")");
 	}
 
 	public boolean isActive() {
