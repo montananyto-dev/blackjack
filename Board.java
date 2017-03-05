@@ -43,17 +43,18 @@ public class Board{
 
 			while (iterator.hasNext()) {
 
-			Player player = iterator.next();
+				Player player = iterator.next();
 
-			System.out.println("\n"+"It is your turn " + player.getName()+ "\n");
-			System.out.println("Your hand is ");player.printHand();
-			System.out.println("\n");
-
-			do {
-				System.out.println("Would you like a card");
-				answer = scan.nextLine();
+				System.out.println("\n"+"It is your turn " + player.getName()+ "\n");
+				System.out.println("Your hand is...");
+				player.printHand();
 				System.out.println("\n");
-			}while (giveNewCardIfYes(answer,player));
+
+				do {
+					System.out.println("Would you like a card");
+					answer = scan.nextLine();
+					System.out.println("\n");
+				} while(giveNewCardIfYes(answer,player));
 
 		}
 	}
@@ -85,7 +86,7 @@ public class Board{
 				aboveLimit = amount > 5;
 				if(aboveLimit) { System.out.println("Above maximum."); }
 			} else { System.out.println("Not a number."); }
-			
+
 		} while(!isNumber || aboveLimit);
 
 		return amount;
