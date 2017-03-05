@@ -1,55 +1,55 @@
 import java.util.ArrayList;
 
 class Player {
-	public static int activePlayers = 0;
-	private String name;
-	private int age;
-	private ArrayList<Card> hand;
-	private boolean active;
+	public static int m_activePlayers = 0;
+	private String m_name;
+	private int m_age;
+	private ArrayList<Card> m_hand;
+	private boolean m_active;
 
 
 
-	public Player( String name,int age){
-		this.activePlayers+=1;
-		this.active=true;
-		this.name = name;
-		this.age = age;
-		this.hand = new ArrayList<Card>() ;
-		hand.addAll(Deck.drawPair());
+	public Player(String name,int age){
+		m_activePlayers+=1;
+		m_active=true;
+		m_name = name;
+		m_age = age;
+		m_hand = new ArrayList<Card>() ;
+		m_hand.addAll(Deck.drawPair());
 	}
 
-	public void setName( String name ){
-		this.name = name;
+	public void setName(String name){
+		m_name = name;
 	}
 
 	public String getName (){
-		return name;
+		return m_name;
 	}
 
 	public void setAge (int age){
-		this.age = age;
+		m_age = age;
 	}
 
 	public int getAge(){
-		return age;
+		return m_age;
 	}
 
 	public void setHand(ArrayList<Card> hand){
-		this.hand = hand;
+		m_hand = hand;
 	}
 
 	public void addCard(Card aCard) {
-		hand.add(aCard);
+		m_hand.add(aCard);
 	}
 
 	public ArrayList<Card> getHand(){
-		return hand;
+		return m_hand;
 	}
 
 	public int getTotalValue() {
 		int value=0;
 		int aceCount=0;
-		for(Card card : hand) {
+		for(Card card : m_hand) {
 			if(card.getValue()==1) { //is an Ace
 				aceCount+=1;
 			} else { //not Ace
@@ -73,12 +73,12 @@ class Player {
 	}
 
 	public void printHand() {
-		for(Card aCard : hand)
+		for(Card aCard : m_hand)
 			System.out.print(aCard + "\n");
 	}
 
 	public boolean isActive() {
-		return this.active;
+		return m_active;
 	}
 
 }

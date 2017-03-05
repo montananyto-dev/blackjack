@@ -3,36 +3,36 @@ import java.util.Random;
 
 class Deck {
 	//remove static when main becomes constructor!
-	private static ArrayList<Card> cards;
-	
+	private static ArrayList<Card> m_cards;
+
 	//will be constructor
 	//public static void main(String[] args) {
-	
+
 	public static void init() {
-		cards = new ArrayList<>();
-		
+		m_cards = new ArrayList<>();
+
 		String[] suites = {"Diamond","Club","Heart","Spade"};
-		
+
 		for(int idx=0;idx<suites.length;idx++) {
 			for(int val=1; val<14;val++) {
-				cards.add(new Card(suites[idx],val));
+				m_cards.add(new Card(suites[idx],val));
 			}
 		}
 	}
-	
+
 	public static Card drawCard() {
 		Random rnd = new Random();
-		Card drawn = cards.get(rnd.nextInt(cards.size()));
-		cards.remove(drawn);
-		
+		Card drawn = m_cards.get(rnd.nextInt(m_cards.size()));
+		m_cards.remove(drawn);
+
 		return drawn;
 	}
-	
+
 	public static ArrayList<Card> drawPair() {
-		ArrayList<Card> pile = new ArrayList<>();
-		pile.add(drawCard());
-		pile.add(drawCard());
-		
-		return pile;
+		ArrayList<Card> pair = new ArrayList<>();
+		pair.add(drawCard());
+		pair.add(drawCard());
+
+		return pair;
 	}
 }
