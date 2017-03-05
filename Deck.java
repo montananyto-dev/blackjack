@@ -36,4 +36,13 @@ class Deck {
 
 		return pair;
 	}
+
+	public static void displayAllCards(){
+
+		for(Card allcards : m_cards ){
+
+			System.out.println(allcards);
+		}
+		System.out.println("\n");
+	}
 }

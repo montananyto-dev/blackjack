@@ -13,6 +13,8 @@ public class Board{
 	public Board() {
 		Deck.init();
 
+		Deck.displayAllCards();
+
 		scan = new Scanner(System.in);
 
 		players = new ArrayList<Player>();
