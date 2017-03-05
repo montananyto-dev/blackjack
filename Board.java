@@ -51,7 +51,7 @@ public class Board{
 				System.out.println("\n");
 
 				do {
-					System.out.println("Would you like a card");
+					System.out.println("Would you like a card (Y/n)");
 					answer = scan.nextLine();
 					System.out.println("\n");
 				} while(giveNewCardIfYes(answer,player));
@@ -61,7 +61,7 @@ public class Board{
 
 		private boolean giveNewCardIfYes(String answer,Player player){
 
-			if (answer.equals("Yes")){
+			if (answer.equalsIgnoreCase("Y") || answer.equalsIgnoreCase("YES")){
 				player.addCard(Deck.drawCard());
 				player.printHand();
 				return false;
